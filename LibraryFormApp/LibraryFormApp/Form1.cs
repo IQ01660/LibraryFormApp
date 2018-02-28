@@ -49,6 +49,25 @@ namespace LibraryFormApp
                 booksCombo.Items.Add(book.Title);
             }
         }
+
+        private void updateBtn_Click(object sender, EventArgs e)
+        {
+            foreach (var book in Book.bookList)
+            {
+                if (book.Title == booksCombo.SelectedItem.ToString())
+                {
+                    book.Title = titleInput.Text;
+                    book.Author = authorInput.Text;
+                    book.Year = Convert.ToInt32(yearInput.Text);
+                    break;
+                }
+            }
+            booksCombo.Items.Clear();
+            foreach (var book in Book.bookList)
+            {
+                booksCombo.Items.Add(book.Title);
+            }
+        }
     }
     class Book
     {
